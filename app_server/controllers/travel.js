@@ -1,5 +1,9 @@
+
+// Importing and intializing
+const packageInfo = require('../../package.json');
+
 const travel = (req, res) => {
-    pageTitle = process.env.npm_package_description + ' - Travel';
+    pageTitle = packageInfo.description + ' - Travel';
     res.render('travel', {title: pageTitle});
 };
 
