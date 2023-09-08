@@ -2,7 +2,7 @@
 const packageInfo = require('../../package.json');
 
 const meals = (req, res) => {
-    pageTitle = process.env.npm_package_description + ' - Meals';
+    pageTitle = packageInfo.description + ' - Meals';
     res.render('meals', {title: pageTitle});
 };
 
