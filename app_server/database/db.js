@@ -44,7 +44,7 @@ process.on('SIGTERM', () => {
 
 require('./models/travlr');
 /*const path = require('path');
-console.log(path.resolve(__dirname, './travlr')); // THIS WAS FOR TESTING PURPOSES WHEN I WAS HAVING A HARD TIME CONNECTING TO LOCALHOST MONGODB
+console.log(path.resolve(__dirname, './travlr'));
 const Travlr = require('./travlr');*/
 
 
