@@ -1,13 +1,19 @@
 const mongoose = require('mongoose');
 const host = process.env.DB_HOST || '127.0.0.1';
-let dbURI = 'mongodb://${host}/travlr';
+let dbURI = `mongodb://${host}/travlr`;
+const readLine = require('readline');
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGODB_URI;
 }
-mongoose.connect(dbURI);
+
+mongoose.connect(dbURI, {
+    useNewUrlParser: true, // fix deprications warning
+    useUnifiedTopology: true,
+    useCreateIndex: true
+});
 
 mongoose.connection.on('connected', () => {
-    console.log('Mongoose connected to $(dbURI}');
+    console.log(`Mongoose connected to ${dbURI}`);
 });
 mongoose.connection.on('error', err => {
     console.log('Moongoose connection error:', err);
@@ -18,7 +24,7 @@ mongoose.connection.on('disconnected', () => {
 
 const gracefulShutdown = (msg, callback) => {
     mongoose.connection.close( () => {
-        console.log('Mongoose disconnected through ${msg}');
+        console.log(`Mongoose disconnected through ${msg}`);
         callback();
     });
 };
