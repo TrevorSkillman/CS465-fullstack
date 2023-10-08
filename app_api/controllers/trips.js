@@ -72,7 +72,7 @@ const tripsAddTrip = async (req, res) => {
 const tripsDeleteTrip = async (req, res) => {
     console.log("inside trips.js on server #tripsDeleteTrip");
 
-    model.findOneAndDelete({'code': req.params.tripCode})
+    Trip.findOneAndDelete({'code': req.params.tripCode})
         .then(trip => {
             if(!trip){
                 return res

@@ -11,26 +11,26 @@ import { Trip } from '../models/trip';
 })
 export class DeleteTripComponent implements OnInit {
 
-  tripCode: string;
-
   constructor(
-    private tripService: TripDataService,
-    private router: Router
+    private router: Router,
+    private tripService: TripDataService
   ) { }
 
   ngOnInit() {
-    this.tripCode = localStorage.getItem("tripCode");
-  }
+    let tripCode = localStorage.getItem("tripCode");
+    if (!tripCode) {
+      alert("Something wrong, couldn't find where I stashed the tripCode!");
+      this.router.navigate(['']);
+      return;
+    }
 
-  deleteTrip(){
-    this.tripService.deleteTrip(this.tripCode)
-    .then(() => {
-      console.log("Trip Deleted Successfully");
-      this.router.navigate(['/trip-listing']); 
-    })
-    .catch(err => {
-      console.error("Error deleting trip: ", err);
-    });
+    console.log("DeleteTripComponent found tripCode " + tripCode);
+
+    this.tripService.deleteTrip(tripCode)
+      .then( data => {
+        console.log(data);
+        this.router.navigate(['']);
+      });
   }
 
 }
