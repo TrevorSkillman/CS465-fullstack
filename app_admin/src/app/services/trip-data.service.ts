@@ -50,6 +50,16 @@ export class TripDataService {
       .catch(this.handleError);
   }
 
+  // DELETE
+  public deleteTrip(tripCode: string): Promise<Trip> {
+    console.log('Inside TripsDataService#deleteTrip(tripCode');
+    return this.http
+      .delete(this.tripUrl + tripCode)
+      .toPromise()
+      .then(response => response.json() as Trip)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('Something has gone wrong', error);
     return Promise.reject(error.message || error);
