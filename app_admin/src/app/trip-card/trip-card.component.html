@@ -8,10 +8,11 @@
       <p class="card-text" [innerHTML]="trip.description"></p>
   </div>
 
-  <div class="btn-group" role="group">
-    <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
-    <button (click)="deleteTrip(trip)" class="btn btn-info">Delete</button>
+  <div *ngIf="isLoggedIn()">
+    <div class="btn-group" role="group">
+      <button (click)="editTrip(trip)" class="btn btn-info">Edit</button>
+      <button (click)="deleteTrip(trip)" class="btn btn-info">Delete</button>
+    </div>
   </div>
-
 </div>
 

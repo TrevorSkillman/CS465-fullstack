@@ -5,7 +5,6 @@ const readLine = require('readline');
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGODB_URI;
 }
-
 mongoose.connect(dbURI, {
     useNewUrlParser: true, // fix deprications warning
     useUnifiedTopology: true,
@@ -49,9 +48,7 @@ process.on('SIGTERM', () => {
 });
 
 require('./models/travlr');
-/*const path = require('path');
-console.log(path.resolve(__dirname, './travlr'));
-const Travlr = require('./travlr');*/
+require('./models/user');
 
 
 
