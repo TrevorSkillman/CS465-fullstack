@@ -14,4 +14,19 @@
 * To me, it would be several reasons, one being the flexibility with which we quickly change the structure of our data.
 * The scalability of MongoDB is made to scale out by spreading data across servers. Gives the Travlr website lots of room for growth in the site.
 * The performance of MongoDB allows for fast writes and reads. MongoDB stores data in BSON format, a binary format that naturally fits the Travlr project by using JavaScript on the front and back end and ensuring consistent data throughout the application.
+
+# Functionality
+"How is JSON different from Javascript, and how does JSON tie together the frontend and backend development pieces?"
+
+* Javascript is a programming language, and JSON is a way to encode data structures like lists and dictionaries for transmission between systems. JSON is commonly used to send data from the server to the client and vice versa due to it being able to parse with Javascript easily.
+
+"Provide instances in the full stack process when you refactored code to improve functionality and efficiencies and name the benefits that come from reusable user interface (UI) components."
+
+* During the project, one noticeable instance of refactoring was when we had to implement backend and frontend security. After adding authorization, I found some of our CRUD methods weren't functioning as expected. I had to refactor the methods to ensure they correctly interacted with the new authorization level that we implemented, which involved revalidating user permissions before performing any of the CRUD operations and adjusting how the data was fetched to align with the user privileges. This was causing major problems for me, but I was able to refactor to maintain the integrity of the application.
+* Consistency - Consistency of the UI components ensured a consistent look and behavior across the application
+* Efficiency - Reduces the need to rewrite code, which will lead to faster development.
+* Maintainability - If a bug is found or if a feature is needed, it can be done in one place, affecting all instances of that component.
+
+#Testing
+
  
